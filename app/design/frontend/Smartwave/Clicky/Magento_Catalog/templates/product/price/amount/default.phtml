@@ -1,0 +1,74 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+
+<span class="price-container <?= /* @escapeNotVerified */ $block->getAdjustmentCssClasses() ?>"
+        <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <?php if ($block->getDisplayLabel()): ?>
+        <span class="price-label"><?= /* @escapeNotVerified */ $block->getDisplayLabel() ?></span>
+    <?php endif; ?>
+    <span <?php if ($block->getPriceId()): ?> id="<?= /* @escapeNotVerified */ $block->getPriceId() ?>"<?php endif;?>
+        <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+        data-price-amount="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>"
+        data-price-type="<?= /* @escapeNotVerified */ $block->getPriceType() ?>"
+        class="price-wrapper <?= /* @escapeNotVerified */ $block->getPriceWrapperCss() ?>">
+        <?= /* @escapeNotVerified */ $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
+    </span>
+    <?php if ($block->hasAdjustmentsHtml()): ?>
+        <?= $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()): ?>
+        <meta itemprop="price" content="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>" />
+        <meta itemprop="priceCurrency" content="<?= /* @escapeNotVerified */ $block->getDisplayCurrencyCode() ?>" />
+    <?php endif; ?>
+</span>
+
+
+
+
+ <!--   Showing Product Badge Attribute-->
+   
+
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$request = $objectManager->get('\Magento\Framework\App\Request\Http');
+
+$checkName = $request->getFullActionName();
+
+if($checkName == 'catalog_product_view'){
+ 
+$registry = $objectManager->get('\Magento\Framework\Registry');
+ 
+$_product = $registry->registry('current_product');
+
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+//$_product = $block->getProduct();
+?>    
+      
+<!--Get Store Media URL -->
+<?php
+    
+    $mediaUrl =  $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+             ->getStore()
+             ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA); 
+    ?>
+    
+<!--Getting Badge Attribute-->
+    <?php $productBadge=$_helper->productAttribute($_product, $_product->getProductBadge(), 'product_badge');
+    ?>
+    
+<!--Showing Badge Image-->
+   <?php if($productBadge!=null) { ?>
+    <img height="70" width="70" src=" <?php echo $mediaUrl."catalog/product".$productBadge?>"/>
+<?php } 
+}
+?>

@@ -5,8 +5,14 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-   <body>
+    <body>
+       <!--    Adding Free Sipping Label    -->
+        <referenceContainer name="price-box">
+           <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.freeshipping" template="product/view/freeshipping_category_view.phtml" after="-">
+            </block>
+       </referenceContainer> 
+       
         <move element="category.image" destination="page.top"/>
-<!--        <move element="sidebar.additional" destination="sidebar.main" before"-"/>-->
-   </body>
+        <move element="sidebar.additional" destination="sidebar.main"  before="-"/>
+    </body>
 </page>

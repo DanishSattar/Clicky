@@ -10,6 +10,46 @@
         <script src="Magento_Catalog::js/jquery.zoom.min.js"/>
     </head>
     <body>
+       
+         
+<referenceContainer name="product.info.stock.sku">
+           <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.delivery" template="product/view/delivery_time.phtml" after="-">
+<arguments>
+   <argument name="at_call" xsi:type="string">getDeliveryTime</argument>
+   <argument name="at_code" xsi:type="string">delivery_time</argument>
+   <argument name="css_class" xsi:type="string">delivery_time</argument>
+   <argument name="at_label" xsi:type="string">Delivery Time</argument>
+   <argument name="add_attribute" xsi:type="string">itemprop="delivery_time"</argument>
+</arguments>
+</block>
+       </referenceContainer>
+       
+   
+<!--       Adding Delivery Time Attribute    -->
+<referenceContainer name="product.info.stock.sku">
+           <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.delivery" template="product/view/delivery_time.phtml" after="-">
+<arguments>
+   <argument name="at_call" xsi:type="string">getDeliveryTime</argument>
+   <argument name="at_code" xsi:type="string">delivery_time</argument>
+   <argument name="css_class" xsi:type="string">delivery_time</argument>
+   <argument name="at_label" xsi:type="string">Delivery Time</argument>
+   <argument name="add_attribute" xsi:type="string">itemprop="delivery_time"</argument>
+</arguments>
+</block>
+       </referenceContainer>
+       
+          
+              
+<!--    Adding Free Sipping Label    -->
+        <referenceContainer name="product.info.stock.sku">
+           <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.freeshipping" template="product/view/freeshipping_catalog_view.phtml" after="-">
+            </block>
+       </referenceContainer>                     
+                                   
+       
+       
+       
+       
         <referenceContainer name="sidebar.additional">
             <block class="Smartwave\Porto\Block\Template" name="product_view_custom_block" before="-" template="Magento_Catalog::product/view/custom_block.phtml"/>
         </referenceContainer>
@@ -41,11 +81,14 @@
         <!--Custom Container-->
         
              
+<!--
 		<referenceContainer name="product.info.main">
-		        <!-- must have content to display -->
+		         must have content to display 
 		        <block  class="Magento\Catalog\Block\Product\View\Description"  name="product.info.mycustomcontainer" template="product/view/mycustomcontainer.phtml"  />
 		</referenceContainer>
-   
+-->
+  
+
    
     </body>
 </page>

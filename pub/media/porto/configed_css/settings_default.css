@@ -1,6 +1,6 @@
 /**
  * WARNING: Do not change this file. Your changes will be lost.
- * 2018-08-01 07:44:11 */
+ * 2018-08-03 10:06:40 */
 body.boxed {
 }
 @media (min-width: 768px) {
@@ -418,12 +418,21 @@ color: #636370;
 /* Clicky - Site description*/   
 
 
+/* Clicky - Promotional Block*/
+ 
+.promotional-area
+{
+margin-bottom:5px;
+}
+/* End Clicky - Promotional Block*/
+
+
 /* Clicky - SideBar Block For Specific Category*/
 
 .side-bar-specific-block
 {
 padding:10px; 
-background:#B7E6D2;
+background: #a3efc630;
 color:#777;
 }
 /* End Clicky - SideBar Block For Specific Category*/
@@ -1038,6 +1047,17 @@ ul.dropdown-menu {
     background: none;
     color: #21293c;
 }
+
+
+
+#layered-filter-block
+{
+margin-bottom:0px !important;
+}
+
+
+
+
 .active > .filter-options-title:after {
     content: '\f800';
 }

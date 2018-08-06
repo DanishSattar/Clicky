@@ -6,18 +6,12 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-       <!--    Adding Free Sipping Label    -->
-        <referenceContainer name="product.info.price">
-           <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.freeshipping.category" template="product/view/freeshipping_category_view.phtml" after="-">
-            </block>
-       </referenceContainer> 
        
-       
-<!-- Moving Category Banner Image To Top--> 
+    <!-- Moving Category Banner Image To Top--> 
         <move element="category.image" destination="page.top"/>
         
         
-<!-- Moving Custom Block To Top Of Sidebar-->
+    <!-- Moving Custom Block To Top Of Sidebar-->
         <move element="sidebar.additional" destination="sidebar.main"  before="-"/>
     </body>
 </page>

@@ -1,0 +1,30 @@
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_badgeimg=$this->helper('Magento\Cms\Helper\Wysiwyg\Images')->getBaseUrl();
+//$mediaUrl = $this ->_storeManager-> getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA );
+
+$_product = $block->getProduct();
+$_code = $block->getAtCode();
+$_className = $block->getCssClass();
+$_attributeLabel = $block->getAtLabel();
+$_attributeType = $block->getAtType();
+$_attributeAddAttribute = $block->getAddAttribute();
+if ($_attributeLabel && $_attributeLabel == 'default') {
+$_attributeLabel = $_product->getResource()->getAttribute($_code)->getFrontendLabel();
+}
+$_attributeValue =$_product->getResource()->getAttribute($_code)->getFrontend()->getValue($_product);
+?>
+<?php if ($_attributeValue): ?>
+<style>
+.price-box.price-final_price
+    {
+        float: left;
+    }
+</style>
+<div class="product-badge">
+
+
+<img height="70" width="70" src=" <?php echo $_badgeimg."catalog/product".$_attributeValue;?>"/>
+
+</div>
+<?php endif; ?>

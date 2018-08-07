@@ -5,8 +5,8 @@ $b_url = $objectManager->get('Magento\Store\Model\StoreManagerInterface')
                    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
 $_product = $block->getProduct();
 $select_brand = $_product->getResource()->getAttribute('select_brand')->getFrontend()->getValue($_product);
-//if ($select_brand != "No"): ?>
-<a href="<?php echo $b_url.'/?select_brand='.$select_brand; ?>">show all products <?php echo $select_brand; ?></a>
-<?php //endif; 
+if ($select_brand != "No"): ?>
+<a href="<?php echo $b_url.'/?select_brand='.$select_brand; ?>">Show All <?php echo $select_brand; ?> Brand Products</a>
+<?php endif; 
 
 //echo $product_price; ?>

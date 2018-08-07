@@ -25,7 +25,13 @@
         </block>
     </referenceContainer>
             
-                      
+<!--    Adding Brand Link                  -->
+   <referenceContainer name="product.info.main" >
+    <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/brand.phtml"/>
+       </referenceContainer>
+   
+   
+   
    
 <!--       Adding Delivery Time Attribute    -->
 <referenceContainer name="product.info.stock.sku">

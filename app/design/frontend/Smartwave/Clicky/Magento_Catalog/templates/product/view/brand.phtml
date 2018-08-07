@@ -19,6 +19,8 @@
 
 
 $_product = $block->getProduct();
+//$category=$_product->getCategoryId();
+//echo $category;
 $brand_name = $_product->getResource()->getAttribute('select_brand')->getFrontend()->getValue($_product);
 $brand_id = $_product->getDataByKey('select_brand');
 if ($brand_name != "No"): ?>
@@ -28,7 +30,7 @@ if ($brand_name != "No"): ?>
         margin-top: 10px;
     }
 </style>
-<a href="<?php echo $b_url.'/?select_brand='.$brand_id; ?>">Show All <?php echo $brand_name; ?> Brand Products</a>
+<a href="<?php echo '/?select_brand='.$brand_id; ?>">Show All <?php echo $brand_name; ?> Brand Products</a>
 <?php endif; 
 
 //echo $product_price; ?>

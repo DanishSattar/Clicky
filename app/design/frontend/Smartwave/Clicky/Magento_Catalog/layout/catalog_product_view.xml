@@ -27,7 +27,7 @@
             
 <!--    Adding Brand Link                  -->
    <referenceContainer name="product.info.main" >
-    <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/brand.phtml"/>
+    <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/brand.phtml" before="product.info.price" />
        </referenceContainer>
    
    

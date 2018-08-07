@@ -1,12 +1,34 @@
 <?php 
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$b_url = $objectManager->get('Magento\Store\Model\StoreManagerInterface')
-                   ->getStore()
-                   ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+//$attributeCode = 'select_brand';
+//$entityType = 'Bag';
+// 
+//$attributeInfo = $block->getAttributeInfo($entityType, $attributeCode);
+//echo $attributeInfo;
+//var_dump($attributeInfo->getData());
+ 
+//$attributeId = $attributeInfo->getAttributeId();
+//echo $attributeId; // YOUR_OPTION_ID
+ 
+//$attributeOptionAll = $block->getAttributeOptionAll($attributeId);
+//var_dump($attributeOptionAll->getData());
+ 
+//$attributeOptionSingle = $block->getAttributeOptionSingle($attributeId, $optionId);
+//$_product = $block->getProduct(); echo "<pre>"; print_r($_product->debug());die("dead");
+
+
+
+
 $_product = $block->getProduct();
-$select_brand = $_product->getResource()->getAttribute('select_brand')->getFrontend()->getValue($_product);
-if ($select_brand != "No"): ?>
-<a href="<?php echo $b_url.'/?select_brand='.$select_brand; ?>">Show All <?php echo $select_brand; ?> Brand Products</a>
+$brand_name = $_product->getResource()->getAttribute('select_brand')->getFrontend()->getValue($_product);
+$brand_id = $_product->getDataByKey('select_brand');
+if ($brand_name != "No"): ?>
+<style>
+.product-info-main .product-reviews-summary, .customer-review .product-reviews-summary
+    {
+        margin-top: 10px;
+    }
+</style>
+<a href="<?php echo $b_url.'/?select_brand='.$brand_id; ?>">Show All <?php echo $brand_name; ?> Brand Products</a>
 <?php endif; 
 
 //echo $product_price; ?>

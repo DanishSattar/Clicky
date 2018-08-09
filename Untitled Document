@@ -1,0 +1,2 @@
+mysqldump -u admin -p Clicky_Site > Clicky_Sitebackupupdated.sql
+
